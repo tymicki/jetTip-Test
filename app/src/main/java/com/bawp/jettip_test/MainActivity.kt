@@ -57,7 +57,6 @@ class MainActivity : ComponentActivity() {
             MyApp {
                 TipCalculator()
             }
-
         }
     }
 }
@@ -88,7 +87,6 @@ fun TipCalculator() {
         }
     }
 }
-
 
 @Preview
 @Composable
@@ -155,16 +153,13 @@ fun BillForm(
     val totalPerPerson = remember {
         mutableStateOf(0.0)
     }
-
     val tipPercentage = (sliderPosition * 100).roundToInt()
     val totalBill = rememberSaveable { mutableStateOf("") } //or just remember {}
     val keyboardController = LocalSoftwareKeyboardController.current
     val valid = remember(totalBill.value) {
         totalBill.value.trim().isNotEmpty()
     }
-
     TopHeader(totalPerPers = totalPerPerson.value)
-
     Surface(
         modifier = Modifier
             .padding(2.dp)
@@ -226,7 +221,6 @@ fun BillForm(
                         )
                         Log.d("TAG", "BillForm: ${splitBy.value}")
                     }
-
                 }
             }
             //Tip Row
@@ -240,14 +234,11 @@ fun BillForm(
                     text = "Tip", modifier = Modifier
                         .align(alignment = Alignment.CenterVertically)
                 )
-
                 Spacer(modifier = Modifier.width(200.dp))
-
                 Text(
                     text = "$${totalTipAmt.value}", modifier = Modifier
                         .align(alignment = Alignment.CenterVertically)
                 )
-
             }
 
             //Slider
@@ -293,7 +284,6 @@ fun CustomButton(
     Button(
         onClick = {
             if (signLabel == "-") {
-
                 onClickButton(count - 1)
             } else {
                 onClickButton(count + 1)
